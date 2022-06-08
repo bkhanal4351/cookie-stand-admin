@@ -16,7 +16,7 @@ export default function Home() {
  
 
       
-      <Footer copywright= '2021' />
+      <Footer copywright= '2022' />
     </div>
   );
 
@@ -24,9 +24,9 @@ export default function Home() {
     event.preventDefault();
     let store = {
       Location : event.target.Location.value,
-      minCustomers: event.target.MinimumPerHour.value,
-      maxCustomers: event.target.MaximumPerHour.value,
-      avgCookies: event.target.AverageCookiesPerHour.value,
+      minCustomers: parseInt(event.target.MinimumPerHour.value),
+      maxCustomers: parseInt(event.target.MaximumPerHour.value),
+      avgCookies: parseFloat(event.target.AverageCookiesPerHour.value),
     }
     setState(store);
     event.target.reset();
@@ -59,7 +59,8 @@ function CookieStandForm(props){
         <input 
         className="flex-auto"
         id="Location"
-        placeholder='input a city' 
+        placeholder='input a city'
+        type="string"
         required 
         />
       </div>
@@ -81,6 +82,7 @@ function CookieStandForm(props){
           <input  
             className="flex-bottom leading-tight" 
             id="MaximumPerHour"
+            type="number"
             placeholder="type an integer" 
             required 
             />
@@ -92,7 +94,7 @@ function CookieStandForm(props){
             className="flex-bottom"
             id="AverageCookiesPerHour"
             type="float"
-            placeholder="input a numeric value" 
+            placeholder="input an int or float" 
             required 
             />
         </div>
